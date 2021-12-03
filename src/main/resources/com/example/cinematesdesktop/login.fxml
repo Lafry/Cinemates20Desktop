@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="392.0" prefWidth="320.0" style="-fx-background-color: #1B1E23;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinematesdesktop.Controller.LoginAdminController">
+         <children>
+             <ImageView fitHeight="32.0" fitWidth="23.0" layoutX="36.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     <Image url="@../../../images/iconUser.png" />
+                 </image>
+             </ImageView>
+             <ImageView fitHeight="32.0" fitWidth="23.0" layoutX="36.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     <Image url="@../../../images/iconPassword.png" />
+                 </image>
+             </ImageView>
+
+            <Button fx:id="loginButton" layoutX="112.0" layoutY="262.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="32.0" prefWidth="96.0" style="-fx-background-radius: 20;" text="Login">
+         <effect>
+            <Glow />
+         </effect></Button>
+            <TextField id="idField" fx:id="idField" layoutX="72.0" layoutY="136.0" prefHeight="32.0" prefWidth="177.0" promptText="ID" style="-fx-background-color: #1B1E23; -fx-background-insets: 0; -fx-border-color: white; -fx-border-radius: 20;" />
+            <PasswordField id="passwordField" fx:id="passwordField" layoutX="72.0" layoutY="196.0" prefHeight="32.0" prefWidth="177.0" promptText="Password" style="-fx-background-radius: 20; -fx-background-color: #1B1E23; -fx-background-insets: 0; -fx-border-color: white; -fx-border-radius: 20;" />
+            <ImageView id="logo" fitHeight="79.0" fitWidth="335.0" layoutX="92.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/CM20.png" />
+               </image>
+            </ImageView>
+      <ProgressIndicator fx:id="progressIndicator" layoutX="134.0" layoutY="314.0" />
+         </children>
+      </Pane>

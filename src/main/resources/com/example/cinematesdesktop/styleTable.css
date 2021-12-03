@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'Nexa Bold';
+    src: url("/fonts/Nexa_Bold.otf");
+}
+
+@font-face {
+    font-family: 'Nexa Light';
+    src: url("/fonts/Nexa_Light.otf");
+}
+
+.table-view{
+    -fx-background-color: lemonchiffon;
+    -fx-background-radius: 20 20 0 0;
+    -fx-border-radius: 20 20 0 0;
+    -fx-border-width: 2;
+}
+
+ /*This work on the row hovered by the mouse*/
+.table-view .table-row-cell:hover{
+    -fx-background-color: #29405e;
+    -fx-cursor: hand;
+}
+
+/*This work on the row selected by the mouse*/
+.table-view .table-row-cell:selected{
+    -fx-background-color: #29405e;
+}
+
+/*This work on the single cell of each row*/
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+    -fx-text-fill: white;
+    -fx-font-family: "Nexa Bold";
+}
+
+.table-view .viewport{
+    -fx-background-color: transparent;
+}
+.table-view .content{
+    -fx-background-color: transparent;
+}
+
+/*This work on the row odd*/
+.table-row-cell:odd{
+    -fx-background-color: #2b3941;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+/*This work on the row even*/
+.table-row-cell:even{
+    -fx-background-color: #2b3941;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+/*This work on the scroll-bars*/
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: #2b3941;
+}
+
+/*This work on the scroll-bars*/
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 0;
+}
+
+/*This work on the spot in the high right angle*/
+.table-view .filler{
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header{
+    -fx-border-width:0,0,10,0;
+    -fx-background-color:transparent;
+}
+
+/*This work on the background of the cells of the header (not the cells)*/
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #F9D976, #fffacd);
+    -fx-background-radius: 20 7px 0px 0px;
+    -fx-background-insets: 0 11px 0 0;
+    -fx-padding: 0 0 5px 0;
+}
+
+/*This work on the scroll-bar*/
+.table-view .scroll-bar * {
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}

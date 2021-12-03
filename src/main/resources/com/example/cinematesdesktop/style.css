@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Nexa Bold';
+    src: url("/fonts/Nexa_Bold.otf");
+}
+
+@font-face {
+    font-family: 'Nexa Light';
+    src: url("/fonts/Nexa_Light.otf");
+}
+
+.text-field{
+    -fx-text-fill: white;
+    -fx-font-family: "Nexa Bold";
+    -fx-background-color: transparent;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+.text-field:focused {
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+.button{
+    -fx-background-color: #ffd700;
+    -fx-background-radius: 10px;
+}
+
+.label {
+    -fx-font-family: "Nexa Bold";
+    -fx-font-size: 12;
+}
+
+.text-area {
+    -fx-background-color: transparent;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-width: 2;
+    -fx-border-color: #c6c6c6;
+    -fx-font-family: "Nexa Bold";
+    -fx-text-fill: white;
+}
+
+.text-area .scroll-bar:vertical {
+    -fx-pref-width: 1;
+    -fx-opacity: 0;
+}
+.text-area .scroll-bar:horizontal {
+    -fx-pref-height: 1;
+    -fx-opacity: 0;
+}
+
+.text-area .viewport{
+    -fx-background-color: transparent;
+}
+.text-area .content{
+    -fx-background-color: transparent;
+}
+
+.button{
+    -fx-cursor: hand;
+}
+
+.button .text {
+    -fx-font-family: "Nexa Bold";
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab-pane{
+    -fx-tab-min-width:90px;
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+
+
+.tab-pane .tab {
+    -fx-background-color: #2b3941;
+    -fx-cursor: hand;
+}
+
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: gold;
+}
+
+.date-picker{
+    -fx-background-color:  #2b3941;
+    -fx-font-family: "Nexa Bold";
+    -fx-text-fill: white;
+    -fx-background-insets: 1 0 1 1;
+    -fx-background-radius: 2 0 0 2;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #29405e;
+}
+
+.tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #828282;
+    -fx-font-size: 15px;
+    -fx-font-family: "Nexa Bold";
+}
+
+.date-picker > .arrow-button {
+    -fx-cursor: hand;
+    -fx-background-color: gold;
+
+}
+

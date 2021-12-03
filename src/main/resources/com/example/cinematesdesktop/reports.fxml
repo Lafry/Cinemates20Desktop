@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="content" prefHeight="510.0" prefWidth="843.0" style="-fx-background-color: #1B1E23;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinematesdesktop.Controller.ReportController">
+    <children>
+        <TableView fx:id="reportsTable" layoutX="144.0" layoutY="55.0" prefHeight="219.0" prefWidth="678.0" stylesheets="@styleTable.css">
+            <columns>
+                <TableColumn fx:id="author" prefWidth="154.0" text="Post author" />
+                <TableColumn fx:id="reporters" prefWidth="134.0" text="Reporters" />
+                <TableColumn fx:id="item" prefWidth="142.0" text="Item" />
+                <TableColumn fx:id="dateAndTime" minWidth="-Infinity" prefWidth="236.0" text="Date" />
+            </columns>
+        </TableView>
+        <TextArea fx:id="textArea" editable="false" layoutX="145.0" layoutY="333.0" prefHeight="150.0" prefWidth="510.0" wrapText="true" />
+        <Label layoutX="147.0" layoutY="305.0" text="Selected report:" textFill="WHITE" />
+        <Button fx:id="rejectButton" cancelButton="true" disable="true" layoutX="686.0" layoutY="422.0" mnemonicParsing="false" text="Reject the report" />
+        <Button fx:id="confirmButton" defaultButton="true" disable="true" layoutX="686.0" layoutY="358.0" mnemonicParsing="false" text="Confrim the report" />
+        <Button fx:id="refreshTable" alignment="CENTER" layoutX="790.0" layoutY="283.0" mnemonicParsing="false" onAction="#refreshTable">
+            <graphic>
+                <ImageView fitHeight="16.0" fitWidth="15.0">
+                    <Image url="@../../../images/refreshIcon.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+      <Label fx:id="logoutButton" layoutX="162.0" layoutY="14.0" text="Reports table" textFill="WHITE" />
+      <Pane layoutX="-1.0" prefHeight="510.0" prefWidth="123.0" style="-fx-background-color: lemonchiffon;">
+         <children>
+            <ImageView fitHeight="108.0" fitWidth="115.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../../../images/CM20.png" />
+                </image>
+            </ImageView>
+            <Button fx:id="goToStatisticsButton" layoutX="14.0" layoutY="79.0" mnemonicParsing="false" onAction="#goToStatistic" text="Go to Statistics" />
+            <Button contentDisplay="RIGHT" layoutX="26.0" layoutY="473.0" mnemonicParsing="false" onAction="#logout" text="Logout">
+                <graphic>
+                    <ImageView fitHeight="16.0" fitWidth="15.0">
+                        <Image url="@../../../images/logoutIcon.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+         </children></Pane>
+    </children>
+</AnchorPane>
