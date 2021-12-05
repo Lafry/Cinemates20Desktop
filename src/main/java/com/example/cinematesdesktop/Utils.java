@@ -21,7 +21,7 @@ public class Utils {
 
     public static Firestore startDb() throws IOException {
         FileInputStream serviceAccount =
-                new FileInputStream("C:\\Users\\franc\\Desktop\\CinematesDesktop\\cinemates20-v1-firebase-adminsdk-um66o-793b38fbbc.json");
+                new FileInputStream("..\\Cinemates20Desktop\\cinemates20-v1-firebase-adminsdk-um66o-793b38fbbc.json");
 
         GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
         FirebaseOptions options = new FirebaseOptions.Builder()
