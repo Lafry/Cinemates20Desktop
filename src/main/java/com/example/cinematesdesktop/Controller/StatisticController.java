@@ -28,10 +28,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
@@ -71,10 +68,17 @@ public class StatisticController implements Initializable {
     }
 
     private void getStatistics() throws IOException, ExecutionException, InterruptedException {
+        //set the start of the current day
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DATE);
+        calendar.set(year, month, day, 0, 0, 0);
+
         totUsers = DAOFactory.getUserDAO("firebase").getTotalUsers(null);
         totComments = DAOFactory.getCommentDAO("firebase").getTotalComments(null);
         totFeed = DAOFactory.getFeedDAO("firebase").getTotalFeeds(null);
-        totUsersOnline = DAOFactory.getUserDAO("firebase").getTotalUsersOnline(new Date());
+        totUsersOnline = DAOFactory.getUserDAO("firebase").getTotalUsersOnline(calendar.getTime());
         totReview = DAOFactory.getReviewDao("firebase").getTotalReviews(null);
         totMovieList = DAOFactory.getMovieListDAO("firebase").getTotalMovieLists(null);
     }
@@ -89,40 +93,43 @@ public class StatisticController implements Initializable {
         set1.getData().add(new XYChart.Data<>("comments", totComments));
         set1.getData().add(new XYChart.Data<>("personal lists", totMovieList));
         set1.getData().add(new XYChart.Data<>("news on the feed", totFeed));
-        x.setCategories(FXCollections.observableArrayList("users", "users online today", "reviews","comments", "movies added", "personal lists", "news on the feed"));
+        x.setCategories(FXCollections.observableArrayList("users", "users online today", "reviews","comments", "personal lists", "news on the feed"));
         chart.getData().addAll(set1);
     }
 
     public void getDate() throws IOException, ExecutionException, InterruptedException {
-        XYChart.Series set2 = new XYChart.Series();
+        if(datePicker.getValue()!=null) {
+            XYChart.Series set2 = new XYChart.Series();
 
-        set2.setName(datePicker.getValue() + " 's stats");
-        set2.getData().add(new XYChart.Data<>("users", DAOFactory.getUserDAO("firebase")
-                .getTotalUsers(Date.from(datePicker.getValue().atStartOfDay()
-                        .atZone(ZoneId.systemDefault())
-                        .toInstant()))));
-        set2.getData().add(new XYChart.Data<>("users online", DAOFactory.getUserDAO("firebase")
-                .getTotalUsersOnline(Date.from(datePicker.getValue().atStartOfDay()
-                        .atZone(ZoneId.systemDefault())
-                        .toInstant()))));
-        set2.getData().add(new XYChart.Data<>("reviews", DAOFactory.getReviewDao("firebase")
-                .getTotalReviews(Date.from(datePicker.getValue().atStartOfDay()
-                .atZone(ZoneId.systemDefault())
-                .toInstant()))));
-        set2.getData().add(new XYChart.Data<>("comments", DAOFactory.getCommentDAO("firebase")
-                .getTotalComments(Date.from(datePicker.getValue().atStartOfDay()
-                .atZone(ZoneId.systemDefault())
-                .toInstant()))));
-        set2.getData().add(new XYChart.Data<>("news on the feed", DAOFactory.getFeedDAO("firebase")
-                .getTotalFeeds(Date.from(datePicker.getValue().atStartOfDay()
-                .atZone(ZoneId.systemDefault())
-                .toInstant()))));
-        chart.getData().addAll(set2);
-        removeDate.setDisable(false);
+            set2.setName(datePicker.getValue() + " 's stats");
+            set2.getData().add(new XYChart.Data<>("users", DAOFactory.getUserDAO("firebase")
+                    .getTotalUsers(Date.from(datePicker.getValue().atStartOfDay()
+                            .atZone(ZoneId.systemDefault())
+                            .toInstant()))));
+            set2.getData().add(new XYChart.Data<>("users online today", DAOFactory.getUserDAO("firebase")
+                    .getTotalUsersOnline(Date.from(datePicker.getValue().atStartOfDay()
+                            .atZone(ZoneId.systemDefault())
+                            .toInstant()))));
+            set2.getData().add(new XYChart.Data<>("reviews", DAOFactory.getReviewDao("firebase")
+                    .getTotalReviews(Date.from(datePicker.getValue().atStartOfDay()
+                            .atZone(ZoneId.systemDefault())
+                            .toInstant()))));
+            set2.getData().add(new XYChart.Data<>("comments", DAOFactory.getCommentDAO("firebase")
+                    .getTotalComments(Date.from(datePicker.getValue().atStartOfDay()
+                            .atZone(ZoneId.systemDefault())
+                            .toInstant()))));
+            set2.getData().add(new XYChart.Data<>("news on the feed", DAOFactory.getFeedDAO("firebase")
+                    .getTotalFeeds(Date.from(datePicker.getValue().atStartOfDay()
+                            .atZone(ZoneId.systemDefault())
+                            .toInstant()))));
+            chart.getData().addAll(set2);
+            removeDate.setDisable(false);
+        }
     }
 
     public void onClearChartClicked() throws IOException, ExecutionException, InterruptedException {
         chart.getData().clear();
+        datePicker.setValue(null);
         startChart();
         removeDate.setDisable(true);
     }
