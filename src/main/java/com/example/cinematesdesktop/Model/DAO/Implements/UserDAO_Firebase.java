@@ -39,7 +39,6 @@ public class UserDAO_Firebase implements UserDAO {
                 .whereLessThan("last_login", Utils.addDays(date, 1))
                 .get();
         List<QueryDocumentSnapshot> documents = query.get().getDocuments();
-        System.out.println("Total users online on: " + date + ": " + documents.size());
         return documents.size();
     }
 }
