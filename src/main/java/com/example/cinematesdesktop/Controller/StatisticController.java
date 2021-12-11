@@ -118,6 +118,10 @@ public class StatisticController implements Initializable {
                     .getTotalComments(Date.from(datePicker.getValue().atStartOfDay()
                             .atZone(ZoneId.systemDefault())
                             .toInstant()))));
+            set2.getData().add(new XYChart.Data<>("personal lists", DAOFactory.getMovieListDAO("firebase")
+                    .getTotalMovieLists(Date.from(datePicker.getValue().atStartOfDay()
+                            .atZone(ZoneId.systemDefault())
+                            .toInstant()))));
             set2.getData().add(new XYChart.Data<>("news on the feed", DAOFactory.getFeedDAO("firebase")
                     .getTotalFeeds(Date.from(datePicker.getValue().atStartOfDay()
                             .atZone(ZoneId.systemDefault())
